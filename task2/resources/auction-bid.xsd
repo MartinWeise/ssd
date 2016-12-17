@@ -1,0 +1,14 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+	<xsd:element name="bid" type="bidType" />
+
+	<xsd:complexType name="bidType">
+		<xsd:sequence>
+			<xsd:element name="user" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="bid" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+		<xsd:attribute name="product" type="xsd:nonNegativeInteger" use="required"/>
+	</xsd:complexType>
+
+</xsd:schema>

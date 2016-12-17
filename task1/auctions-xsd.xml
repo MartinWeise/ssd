@@ -1,0 +1,61 @@
+<auctions>
+    <products>
+        <product id="1" auctionEnd="2016-10-12">
+            <name>Product #1</name>
+            <description>A <it>very</it> awesome product, as seen <a href="site.htm">here</a>.</description>
+            <expired />
+            <category>book</category>
+        </product>
+        <product id="2" auctionEnd="2015-10-10">
+            <name>Product #2</name>
+            <category>music</category>
+        </product>
+        <product id="3" auctionEnd="2015-10-22">
+            <name>Product #3</name>
+            <description>
+                Dear <it>friend</it> I am of king in <a href="virus.htm"> my cantry   </a> for a transaction I
+                need yuor help plaese send me of <it>100,- moneys</it> so we can transfer the sum to you're
+                <a href="nope.htm">bank acc   .</a> ..
+                Sänk you!
+            </description>
+            <category>movie</category>
+        </product>
+    </products>
+    <users>
+        <user username="eschmidt" password="password12345">
+            <fullname>Eric Schmidt</fullname>
+            <email>eric.schmidt@mail.com</email>
+            <balance>100</balance>
+        </user>
+        <user username="iharper" password="p4wn0rlulz!">
+            <name>
+                <firstname>Irmgard</firstname>
+                <lastname>Harper</lastname>
+            </name>
+            <email>irmi.harper@mail.com</email>
+            <balance>1032</balance>
+        </user>
+        <user username="michiii" password="please.dont.save.passwords.as.plaintext">
+            <name>
+                <firstname>Michael</firstname>
+                <lastname>Gruber</lastname>
+            </name>
+            <email>michiii@mail.com</email>
+            <balance>10</balance>
+        </user>
+    </users>
+    <bids>
+        <product id="1">
+            <bid user="iharper">10</bid>
+            <bid user="michiii">15</bid>
+            <bid user="iharper">17</bid>
+        </product>
+        <product id="2">
+            <bid user="michiii">8</bid>
+            <bid user="eschmidt">12</bid>
+        </product>
+        <product id="3">
+            <bid user="iharper">40</bid>
+        </product>
+    </bids>
+</auctions>

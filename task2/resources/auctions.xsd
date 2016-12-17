@@ -1,0 +1,130 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+	<xsd:element name="auctions" type="auctions">
+		<xsd:key name="userKeys">
+			<xsd:selector xpath="users/user"/>
+			<xsd:field xpath="@username"/>
+		</xsd:key>
+
+		<xsd:keyref name="userRefs" refer="userKeys">
+			<xsd:selector xpath="bids/product/bid"/>
+			<xsd:field xpath="@user"/>
+		</xsd:keyref>
+
+		<xsd:key name="productKeys">
+			<xsd:selector xpath="products/product"/>
+			<xsd:field xpath="@id"/>
+		</xsd:key>
+
+	  	<xsd:keyref name="productRefs" refer="productKeys">
+			<xsd:selector xpath="bids/product"/>
+			<xsd:field xpath="@id"/>
+		</xsd:keyref>
+	</xsd:element>
+
+	<xsd:complexType name="auctions">
+		<xsd:sequence>
+			<xsd:element name="products" type="products" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="users" type="users" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="bids" type="bids" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="products">
+		<xsd:sequence>
+			<xsd:element name="product" type="product" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="product">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="description" type="description" minOccurs="0" />
+      <xsd:element name="expired" minOccurs="0"><xsd:complexType /></xsd:element>
+      <xsd:element name="category" type="categories" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:nonNegativeInteger" use="required"/>
+		<xsd:attribute name="auctionEnd" type="xsd:date" use="required"/>
+	</xsd:complexType>
+
+  <xsd:complexType name="description" mixed="true">
+	    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+		   <xsd:element name="a" type="anchor" />
+		   <xsd:element name="it" type="xsd:string" />
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="anchor">
+	   <xsd:simpleContent>
+	      <xsd:extension base="xsd:string">
+		     <xsd:attribute name="href" type="xsd:string" use="required" />
+		  </xsd:extension>
+	   </xsd:simpleContent>
+	</xsd:complexType>
+
+
+  <xsd:simpleType name="categories">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="book"/>
+      <xsd:enumeration value="movie"/>
+      <xsd:enumeration value="music"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+	<xsd:complexType name="users">
+		<xsd:sequence>
+			<xsd:element name="user" type="user" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="user">
+		<xsd:sequence>
+      <xsd:choice minOccurs="1" maxOccurs="1">
+          <xsd:element name="fullname" type="xsd:string" />
+          <xsd:element name="name" type="name" />
+      </xsd:choice>
+      <xsd:element name="email" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="balance" type="xsd:nonNegativeInteger" />
+		</xsd:sequence>
+		<xsd:attribute name="username" type="xsd:string" use="required"/>
+		<xsd:attribute name="password" type="xsd:string" use="required"/>
+	</xsd:complexType>
+
+  <xsd:complexType name="name">
+    <xsd:sequence>
+      <xsd:element name="firstname" type="xsd:string"/>
+      <xsd:element name="lastname" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+	<xsd:complexType name="bids">
+		<xsd:sequence>
+			<xsd:element name="product" type="bidProduct" minOccurs="0" maxOccurs="unbounded">
+			<xsd:key name="bidProductKeys">
+				<xsd:selector xpath="product" />
+				<xsd:field xpath="@id" />
+			</xsd:key>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="bidProduct">
+		<xsd:sequence>
+			<xsd:element name="bid" type="bid" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:nonNegativeInteger" use="required"/>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="bid">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:nonNegativeInteger">
+				<xsd:attribute name="user" type="xsd:string" use="required" />
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+
+
+</xsd:schema>

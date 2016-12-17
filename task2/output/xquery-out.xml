@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<won>
+   <user name="Bart">
+      <product value="450">Web Engineering</product>
+      <product value="150">XML in a Nutshell</product>
+   </user>
+   <user name="Homer"/>
+   <user name="Lisa">
+      <product value="300">The Great Gatsby (Movie + Soundtrack)</product>
+   </user>
+</won>

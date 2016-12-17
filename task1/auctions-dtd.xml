@@ -1,0 +1,60 @@
+<auctions>
+    <products>
+        <product id="1" auctionEnd="2016-10-11">
+            <name>Produkt #1</name>
+            <description>A very awesome product, as seen here.</description>
+            <category type="movie" />
+        </product>
+        <product id="2" auctionEnd="2016-10-12">
+            <name>Produkt #2</name>
+            <category type="book" />
+        </product>
+        <product>
+            <name>Product #3</name>
+            <description>
+                Dear friend I am of king in my cantry for a transaction I need yuor help plaese send me of
+                100,- moneys so we can transfer the sum to you're bank acc .
+                ..
+                Sänk you!
+            </description>
+            <category type="book" />
+        </product>
+    </products>
+    <users>
+        <user username="eschmidt" password="password12345">
+            <fullname>Eric Schmidt</fullname>
+            <email>eric.schmidt@mail.com</email>
+            <balance>100</balance>
+        </user>
+        <user username="iharper" password="p4wn0rlulz!">
+            <name>
+                <firstname>Irmgard</firstname>
+                <lastname>Harper</lastname>
+            </name>
+            <email>irmi.harper@mail.com</email>
+            <balance>1032</balance>
+        </user>
+        <user username="michiii" password="please.dont.save.passwords.as.plaintext">
+            <name>
+                <firstname>Michael</firstname>
+                <lastname>Gruber</lastname>
+            </name>
+            <email>michiii@mail.com</email>
+            <balance>10</balance>
+        </user>
+    </users>
+    <bids>
+        <product id="1">
+            <bid user="iharper">10</bid>
+            <bid user="michiii">15</bid>
+            <bid user="iharper">17</bid>
+        </product>
+        <product id="2">
+            <bid user="michiii">8</bid>
+            <bid user="eschmidt">12</bid>
+        </product>
+        <product id="3">
+            <bid user="iharper">40</bid>
+        </product>
+    </bids>
+</auctions>

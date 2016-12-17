@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<!DOCTYPE jeopardy SYSTEM "jeopardy.dtd">-->
+<auctions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <products>
+     <product id="1" auctionEnd="2016-06-10">
+        <name>Web Engineering</name>
+        <description>This is the description of <a href="about:blank">Web Engineering</a></description>
+        <expired />
+        <category>book</category>
+     </product>
+     <product id="2" auctionEnd="2016-07-10">
+        <name>The Great Gatsby (Movie + Soundtrack)</name>
+        <category>movie</category>
+        <category>music</category>
+     </product>
+     <product id="3" auctionEnd="2016-04-21">
+        <name>XML in a Nutshell</name>
+        <description><it>XML in a Nutshell</it> is a great book about XML.</description>
+        <category>book</category>
+     </product>
+	 <product id="4" auctionEnd="2016-10-21">
+        <name>Database Systems</name>
+        <description>The database systems book!</description>
+        <category>book</category>
+     </product>
+  </products>
+
+
+  <users>
+    <user username="Bart" password="basi">
+      <fullname>Bart Simpson</fullname>
+      <balance>1000</balance>
+    </user>
+
+    <user username="Lisa" password="lisi">
+      <name>
+        <firstname>Lisa</firstname>
+        <lastname>Simpson</lastname>
+      </name>
+      <balance>500</balance>
+    </user>
+
+    <user username="Homer" password="hosi">
+      <name>
+        <firstname>Homer</firstname>
+        <lastname>Simpson</lastname>
+      </name>
+      <email>homer.simpson@gmail.com</email>
+      <email>homer.simpson@hotmail.com</email>
+      <balance>900</balance>
+    </user>
+  </users>
+
+  <bids>
+    <product id="1">
+       <bid user="Bart">400</bid>
+       <bid user="Lisa">410</bid>
+       <bid user="Bart">450</bid>
+    </product>
+    <product id="2">
+       <bid user="Homer">200</bid>
+       <bid user="Lisa">300</bid>
+    </product>
+    <product id="3">
+       <bid user="Bart">150</bid>
+    </product>
+  </bids>
+</auctions>

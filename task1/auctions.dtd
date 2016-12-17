@@ -1,0 +1,29 @@
+<!ELEMENT auctions (products,users,bids)>
+
+    <!ELEMENT products (product*)>
+        <!ELEMENT product ((name, description?,expired?,category) | bid+)>
+            <!ELEMENT name        (#PCDATA | firstname | lastname)*>
+            <!ELEMENT description (#PCDATA | it | a)*><!-- no possibility of content constraints like this -->
+                <!ELEMENT it           (#PCDATA)>
+                <!ELEMENT a            (#PCDATA)>
+                    <!ATTLIST a href CDATA #REQUIRED>
+            <!ELEMENT expired     EMPTY>
+            <!ELEMENT category    EMPTY>
+                <!ATTLIST category type (book | movie | music) #REQUIRED><!-- closest assumption -->
+            <!ATTLIST product id         CDATA #IMPLIED><!-- char, negative inter and non-unique values allowed -->
+            <!ATTLIST product auctionEnd CDATA #IMPLIED><!-- not required, consent -->
+<!ELEMENT users    (user*)>
+    <!ELEMENT user ((fullname | name),email+,balance)>
+        <!ELEMENT fullname     (#PCDATA)>
+        <!-- duplicate entry: name, but instantiably with attributes -->
+            <!ELEMENT firstname (#PCDATA)>
+            <!ELEMENT lastname  (#PCDATA)>
+        <!ELEMENT email        (#PCDATA)>
+        <!ELEMENT balance      (#PCDATA)>
+        <!ATTLIST user username ID #REQUIRED>
+        <!ATTLIST user password CDATA #REQUIRED>
+
+<!ELEMENT bids     (product*)>
+    <!-- duplicate entry: product, but can have child <bid> -->
+        <!ELEMENT bid          (#PCDATA)>
+            <!ATTLIST bid user IDREF #REQUIRED>

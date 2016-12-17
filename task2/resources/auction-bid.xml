@@ -1,0 +1,4 @@
+<bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="auctions-bid.xsd" product="2">
+   <user>Lisa</user>
+   <bid>500</bid>
+</bid>
